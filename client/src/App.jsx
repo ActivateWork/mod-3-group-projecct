@@ -8,6 +8,8 @@ import Navbar from "./components/NavBar";
 import Register from "./users/Register";
 import Login from "./users/Login";
 import Profile from "./users/Profile";
+import Footer from "./components/Footer"
+import Show from './pages/Show'
 
 function App() {
   const [user, setUser] = useState({});
@@ -38,7 +40,7 @@ function App() {
           <Route path="/new" element={<NewPost />} />
           <Route path="/register" element={<Register setUser={setUser} />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
-
+          <Route path="/:id" element={<Show />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>

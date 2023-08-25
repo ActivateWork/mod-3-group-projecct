@@ -60,7 +60,7 @@ function Login({ setUser }) {
 
   // JSX rendering of the Login component
   return (
-    <div className="my-32" div>
+    <div className="my-32">
       <h1 className="flex justify-center mb-4 text-large font-extrabold leading-none tracking-tight text-lime-900 md:text-5xl lg:text-6xl">
         Login
       </h1>
