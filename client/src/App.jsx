@@ -4,6 +4,9 @@ import './App.css'
 import IndexPost from './pages/IndexPost';
 import NewPost from './pages/NewPost';
 import Navbar from './components/NavBar';
+import Register from './users/Register'
+import Login from './users/Login';
+
 function App() {
   const[ user, setUser] = useState({})
 
@@ -28,8 +31,10 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path='/' element={<IndexPost />}/>
+        <Route path='/' element={<IndexPost setUser={setUser}/>}/>
         <Route path='/new' element={<NewPost />}/>
+        <Route path='/register' element={<Register setUser={setUser}/>} />
+        <Route path='/login' element={<Login setUser={setUser}/>} />
       </Routes>
     </div>
   )

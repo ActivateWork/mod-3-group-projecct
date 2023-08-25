@@ -13,8 +13,8 @@ function NewPost() {
         e.preventDefault()
         try {
             const newPost = {
-                subject: subjectRef.current.value,
-                body: bodyRef.current.value
+                title: titleRef.current.value,
+                message: messageRef.current.value
             }
             await axios.post(`/api/posts`, newPost, {
                 headers: {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
-
+import Profile from '../users/Profile'
 import axios from 'axios'
 
 function IndexPost() {
@@ -13,6 +13,7 @@ function IndexPost() {
         try {
             console.log('fetch data here')
             const response = await axios.get('/api/posts')
+            console.log(response)
             setPosts(response.data)
         } catch(err) {
             console.log(err.message)
@@ -26,6 +27,7 @@ function IndexPost() {
     return (
             <div>
                 <h1>Posts</h1>
+                <Profile setUser={setUser} />
                 <div id="posts">
                     {posts.map((post,i)=>{
                         <div>

@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 
-function UserProf() {
-    const [user,setUser] = useState([])
+function UserProf({setUser}) {
     async function getUser(){
         try{
             const response = await axios.get(`api/users/${id}`)
