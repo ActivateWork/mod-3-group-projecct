@@ -12,7 +12,7 @@ router.get('/', postController.index )
 // delete route
 router.delete('/:id', postController.delete)
 // update route
-router.patch('/:id', postController.update)
+router.put('/:id', postController.update)
 // create route
 router.post('/', postController.create)
 // show route
