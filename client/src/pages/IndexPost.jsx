@@ -27,12 +27,13 @@ function IndexPost() {
     console.log(posts)
     return (
             <div className="my-32">
-                <h1 className="flex justify-center mb-8 text-large font-extrabold leading-none tracking-tight text-lime-900 md:text-5xl lg:text-6xl">Posts</h1>
+                <h1 className="flex justify-center mb-8 text-large font-extrabold leading-none tracking-tight text-lime-900 md:text-5xl lg:text-6xl">Tweet-a-sec</h1>
                 <div  id="posts">
                     {posts.map((post,i) => 
                         <div key={i} className="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 ">
-                            <h2 className="mb-2 text-3xl font-bold text-lime-500 ">{post.title}</h2>
-                            <p className="mb-5 text-base text-gray-500 sm:text-lg ">{post.message}</p>
+                            
+                            <Link to={`/${post._id}`} className="hover:underline text-lime-500 cursor-pointer"><h2 className="mb-2 text-3xl font-bold text-lime-500 ">{post.title}</h2></Link>
+                            
                         </div>
                     )}
                 </div>
