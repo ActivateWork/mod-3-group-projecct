@@ -44,7 +44,7 @@ async function register(req, res) {
 }
 
 async function login(req, res) {
-
+    console.log('login controller reached')
     try {
 
     // 1. Check if user exists

@@ -51,7 +51,7 @@ function Login({ setUser }) {
       setUser(userResponse.data);
 
       // Navigate the user to the "/posts" route
-      navigate("/posts");
+      navigate("/");
     } catch (err) {
       console.log(err);
       alert(err.response.data.error); // Display an alert with the error message
@@ -60,7 +60,7 @@ function Login({ setUser }) {
 
   // JSX rendering of the Login component
   return (
-    <>
+    <div className="my-32">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
@@ -87,7 +87,7 @@ function Login({ setUser }) {
         <br />
         <button>Submit</button>
       </form>
-    </>
+    </ div>
   );
 }
 

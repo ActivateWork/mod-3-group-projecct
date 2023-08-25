@@ -1,4 +1,4 @@
-import axios from "../../api";
+import axios from "axios";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -49,7 +49,7 @@ function Register({ setUser }) {
       setUser(userResponse.data);
 
       // Navigate to the "/posts" route
-      navigate("/posts");
+      navigate("/");
     } catch (err) {
       console.log(err);
       alert(err.response.data.error);
@@ -57,7 +57,7 @@ function Register({ setUser }) {
   };
 
   return (
-    <>
+    <div className="my-32">
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
@@ -95,7 +95,7 @@ function Register({ setUser }) {
         <br />
         <button>Submit</button>
       </form>
-    </>
+    </ div>
   );
 }
 
