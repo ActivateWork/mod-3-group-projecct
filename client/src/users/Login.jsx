@@ -51,7 +51,7 @@ function Login({ setUser }) {
       setUser(userResponse.data);
 
       // Navigate the user to the "/posts" route
-      navigate("/posts");
+      navigate("/");
     } catch (err) {
       console.log(err);
       alert(err.response.data.error); // Display an alert with the error message
@@ -60,7 +60,7 @@ function Login({ setUser }) {
 
   // JSX rendering of the Login component
   return (
-    <div className="my-32">
+    <div className="my-32"div className="my-32">
       <h1 className="flex justify-center mb-4 text-large font-extrabold leading-none tracking-tight text-lime-900 md:text-5xl lg:text-6xl">Login</h1>
       <form onSubmit={handleSubmit}>
         <label className=" text-lg font-normal text-gray-500 lg:text-xl  dark:text-gray-400" htmlFor="username">Username:</label>
@@ -89,7 +89,7 @@ function Login({ setUser }) {
         <br />
         <button className="bg-lime-600 inline-block w-full rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#00FF00 ] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] ">Submit</button>
       </form>
-    </div>
+    </ divdiv>
   );
 }
 
