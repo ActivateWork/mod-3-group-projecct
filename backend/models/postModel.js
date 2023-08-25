@@ -1,12 +1,22 @@
-const mongoose = require('mongoose')
+const posts = [
+   {
+       subject: 'Shut up and give toilet paper DONKAY!',
+       body: 'Once upon a time.',
+       user: 'Shrek',
+       comments: []
+   },
+   {
+       subject: 'I lost to Robert in chess',
+       body: 'I suck at playing chess guys',
+       user: 'Farhad',
+       comments: []
+   },
+   {
+       subject: 'Tactical nuke incoming!!!',
+       body: '*NUCLEAR SIREN GOING OFF*',
+       user: 'CODNUKE',
+       comments: []
+   }
+]
 
-const Schema = mongoose.Schema
-
-const postSchema = new Schema({
-   title: { type: String },
-   message: { type: String }  
-}, { timestamps: true })
-
-const Post = mongoose.model('posts', postSchema)
-
-module.exports = Post
+module.exports = posts
