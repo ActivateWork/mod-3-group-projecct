@@ -5,6 +5,10 @@ import './index.css'
 import IndexPost from './pages/IndexPost';
 import NewPost from './pages/NewPost';
 import Navbar from './components/NavBar';
+import Register from './users/Register'
+import Login from './users/Login'
+import Footer from './components/Footer';
+
 function App() {
   const[ user, setUser] = useState({})
 
@@ -28,13 +32,15 @@ function App() {
   return (
     <div>
       <Navbar/>
-      <div className='flex justify-center bg-lime-50'>
+      <div className='flex justify-center bg-lime-50 h-screen'>
       <Routes>
         <Route path='/' element={<IndexPost />}/>
         <Route path='/new' element={<NewPost />}/>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/register' element={<Register />}/>
       </Routes>
       </div>
-      
+      <Footer/>
     </div>
   )
 }
