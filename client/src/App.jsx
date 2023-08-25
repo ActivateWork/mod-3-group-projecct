@@ -8,6 +8,7 @@ import Navbar from "./components/NavBar";
 import Register from "./users/Register";
 import Login from "./users/Login";
 import Profile from "./users/Profile";
+import Footer from "./components/Footer"
 
 function App() {
   const [user, setUser] = useState({});
