@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
+import { logout } from "../store/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-function Navbar({ setUser, username }) {
-  const logout = () => {
-    localStorage.removeItem("token");
-    setUser({});
-  };
+function Navbar() {
+  const user = useSelector(state => state.auth.user);
+  const dispatch = useDispatch();
 
   return (
     <nav className="bg-slate-300  fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
@@ -89,15 +89,22 @@ function Navbar({ setUser, username }) {
             <p>Home page</p>
           </Link>
         </li>
-        <li style={{ color: "black" }}>Welcome {username}!</li>
-        <li onClick={logout}>
-          <Link
-            className="block py-2 pl-3 pr-4 text-white font-bold bg-lime-700 rounded md:bg-transparent md:text-lime-700 md:p-0 md:dark:text-blue-500"
-            to="/"
-          >
-            Logout
-          </Link>
-        </li>
+
+        {user.username && (
+          <>
+            <li style={{ color: "black" }}>Welcome {user.username}!</li>
+
+            <li onClick={() => dispatch(logout())}>
+              <Link
+                className="block py-2 pl-3 pr-4 text-white font-bold bg-lime-700 rounded md:bg-transparent md:text-lime-700 md:p-0 md:dark:text-blue-500"
+                to="/"
+              >
+                Logout
+              </Link>
+            </li>
+          </>
+        )}
+        
         <li>
           <Link
             className="block py-2 pl-3 pr-4 text-white font-bold bg-lime-700 rounded md:bg-transparent md:text-lime-700 md:p-0 md:dark:text-blue-500"

@@ -1,7 +1,9 @@
 import axios from "axios";
 
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setUser } from "../store/authSlice";
 
 // Initial form state with empty values for username, password, and email
 
@@ -12,8 +14,9 @@ let emptyForm = {
 };
 
 // Login component definition
-function Login({ setUser }) {
+function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // State to hold the form data, initialized with emptyForm
   let [form, setForm] = useState(emptyForm);
@@ -48,7 +51,7 @@ function Login({ setUser }) {
       });
 
       // Update the user context with the fetched user data
-      setUser(userResponse.data);
+      dispatch(setUser(userResponse.data));
 
       // Navigate the user to the "/posts" route
       navigate("/");

@@ -1,7 +1,9 @@
 import axios from "axios";
 
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setUser } from "../store/authSlice";
 
 let emptyForm = {
   username: "",
@@ -9,19 +11,20 @@ let emptyForm = {
   email: "",
 };
 
-function Register({ setUser }) {
+function Register() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // State for storing the form data
   let [form, setForm] = useState(emptyForm);
 
   // Function to update form state when input values change
-  const handleChange = (e) => {
+  const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   // Function to handle form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     try {
@@ -46,7 +49,7 @@ function Register({ setUser }) {
       });
 
       // Set the user state with the fetched user data
-      setUser(userResponse.data);
+      dispatch(setUser(userResponse.data));
 
       // Navigate to the "/posts" route
       navigate("/");
