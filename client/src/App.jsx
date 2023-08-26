@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./index.css";
 import IndexPost from "./pages/IndexPost";
@@ -8,11 +8,13 @@ import Navbar from "./components/NavBar";
 import Register from "./users/Register";
 import Login from "./users/Login";
 import Profile from "./users/Profile";
-import Footer from "./components/Footer"
-import Show from './pages/Show'
+import Footer from "./components/Footer";
+import Show from "./pages/Show";
+import { setUser } from "./store/authSlice";
+import { useDispatch } from "react-redux";
 
 function App() {
-  const [user, setUser] = useState({});
+  const dispatch = useDispatch();
 
   async function getUser() {
     try {
@@ -22,24 +24,22 @@ function App() {
         },
       });
       console.log(response);
-      setUser(response.data);
+      dispatch(setUser(response.data));
     } catch (err) {
       console.log(err.message);
+      localStorage.removeItem("token");
     }
   }
 
-  useEffect(() => {
-    console.log("page loaded");
-  }, []);
   return (
     <div>
-      <Navbar setUser={setUser} username={user.username} />
+      <Navbar />
       <div className="flex justify-center bg-lime-50 h-screen">
         <Routes>
           <Route path="/" element={<IndexPost />} />
           <Route path="/new" element={<NewPost />} />
-          <Route path="/register" element={<Register setUser={setUser} />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/:id" element={<Show />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
